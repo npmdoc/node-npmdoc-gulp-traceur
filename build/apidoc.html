@@ -63,7 +63,38 @@
 
         <li>
 
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-traceur.gulp-traceur">
+            function <span class="apidocSignatureSpan"></span>gulp-traceur
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-traceur.toString">
+            function <span class="apidocSignatureSpan">gulp-traceur.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
             <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">gulp-traceur.</span>RUNTIME_PATH</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gulp-traceur.toString">module gulp-traceur.toString</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-traceur.toString.toString">
+            function <span class="apidocSignatureSpan">gulp-traceur.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
 
         </li>
 
@@ -74,6 +105,127 @@
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.gulp-traceur" id="apidoc.module.gulp-traceur">module gulp-traceur</a></h1>
 
+
+    <h2>
+        <a href="#apidoc.element.gulp-traceur.gulp-traceur" id="apidoc.element.gulp-traceur.gulp-traceur">
+        function <span class="apidocSignatureSpan"></span>gulp-traceur
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">gulp-traceur = function (opts) {
+	return through.obj(function (file, enc, cb) {
+		if (file.isNull()) {
+			cb(null, file);
+			return;
+		}
+
+		if (file.isStream()) {
+			cb(new gutil.PluginError(&#x27;gulp-traceur&#x27;, &#x27;Streaming not supported&#x27;));
+			return;
+		}
+
+		opts = objectAssign({
+			modules: &#x27;commonjs&#x27;,
+			inputSourceMap: file.sourceMap
+		}, opts);
+
+		try {
+			var compiler = new traceur.NodeCompiler(opts);
+			var ret = compiler.compile(file.contents.toString(), file.relative, file.relative, file.base);
+			var sourceMap = file.sourceMap &#x26;&#x26; compiler.getSourceMap();
+
+			if (ret) {
+				file.contents = new Buffer(ret);
+			}
+
+			if (sourceMap) {
+				applySourceMap(file, sourceMap);
+			}
+
+			this.push(file);
+		} catch (err) {
+			var msg = Array.isArray(err) ? err.join(&#x27;\n&#x27;) : err;
+			this.emit(&#x27;error&#x27;, new gutil.PluginError(&#x27;gulp-traceur&#x27;, msg, {
+				fileName: file.path,
+				showStack: false
+			}));
+		}
+
+		cb();
+	});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-traceur.toString" id="apidoc.element.gulp-traceur.toString">
+        function <span class="apidocSignatureSpan">gulp-traceur.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+    return text;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		opts = objectAssign({
+			modules: &#x27;commonjs&#x27;,
+			inputSourceMap: file.sourceMap
+		}, opts);
+
+		try {
+			var compiler = new traceur.NodeCompiler(opts);
+			var ret = compiler.compile(file.contents.<span class="apidocCodeKeywordSpan">toString</span>(), file.relative, file.relative,
+file.base);
+			var sourceMap = file.sourceMap &#x26;&#x26; compiler.getSourceMap();
+
+			if (ret) {
+				file.contents = new Buffer(ret);
+			}
+
+			if (sourceMap) {
+...</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gulp-traceur.toString" id="apidoc.module.gulp-traceur.toString">module gulp-traceur.toString</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-traceur.toString.toString" id="apidoc.element.gulp-traceur.toString.toString">
+        function <span class="apidocSignatureSpan">gulp-traceur.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function toString() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		opts = objectAssign({
+			modules: &#x27;commonjs&#x27;,
+			inputSourceMap: file.sourceMap
+		}, opts);
+
+		try {
+			var compiler = new traceur.NodeCompiler(opts);
+			var ret = compiler.compile(file.contents.<span class="apidocCodeKeywordSpan">toString</span>(), file.relative, file.relative,
+file.base);
+			var sourceMap = file.sourceMap &#x26;&#x26; compiler.getSourceMap();
+
+			if (ret) {
+				file.contents = new Buffer(ret);
+			}
+
+			if (sourceMap) {
+...</pre></li>
+    </ul>
 
 
 </div>

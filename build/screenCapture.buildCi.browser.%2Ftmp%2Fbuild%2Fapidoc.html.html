@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/sindresorhus/gulp-traceur#readme"
-
-    >gulp-traceur (v0.17.2)</a>
+    <a href="https://github.com/sindresorhus/gulp-traceur#readme">gulp-traceur (v0.17.2)</a>
 </h1>
 <h4>Traceur is a JavaScript.next to JavaScript-of-today compiler</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.gulp-traceur">module gulp-traceur</a><ol>
 
@@ -121,19 +114,19 @@
 		}
 
 		if (file.isStream()) {
-			cb(new gutil.PluginError(&#x27;gulp-traceur&#x27;, &#x27;Streaming not supported&#x27;));
+			cb(new gutil.PluginError('gulp-traceur', 'Streaming not supported'));
 			return;
 		}
 
 		opts = objectAssign({
-			modules: &#x27;commonjs&#x27;,
+			modules: 'commonjs',
 			inputSourceMap: file.sourceMap
 		}, opts);
 
 		try {
 			var compiler = new traceur.NodeCompiler(opts);
 			var ret = compiler.compile(file.contents.toString(), file.relative, file.relative, file.base);
-			var sourceMap = file.sourceMap &#x26;&#x26; compiler.getSourceMap();
+			var sourceMap = file.sourceMap &amp;&amp; compiler.getSourceMap();
 
 			if (ret) {
 				file.contents = new Buffer(ret);
@@ -145,8 +138,8 @@
 
 			this.push(file);
 		} catch (err) {
-			var msg = Array.isArray(err) ? err.join(&#x27;\n&#x27;) : err;
-			this.emit(&#x27;error&#x27;, new gutil.PluginError(&#x27;gulp-traceur&#x27;, msg, {
+			var msg = Array.isArray(err) ? err.join('\n') : err;
+			this.emit('error', new gutil.PluginError('gulp-traceur', msg, {
 				fileName: file.path,
 				showStack: false
 			}));
@@ -172,7 +165,7 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 		opts = objectAssign({
-			modules: &#x27;commonjs&#x27;,
+			modules: 'commonjs',
 			inputSourceMap: file.sourceMap
 		}, opts);
 
@@ -180,7 +173,7 @@
 			var compiler = new traceur.NodeCompiler(opts);
 			var ret = compiler.compile(file.contents.<span class="apidocCodeKeywordSpan">toString</span>(), file.relative, file.relative,
 file.base);
-			var sourceMap = file.sourceMap &#x26;&#x26; compiler.getSourceMap();
+			var sourceMap = file.sourceMap &amp;&amp; compiler.getSourceMap();
 
 			if (ret) {
 				file.contents = new Buffer(ret);
@@ -209,7 +202,7 @@ file.base);
     <li>description and source-code<pre class="apidocCodePre">function toString() { [native code] }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 		opts = objectAssign({
-			modules: &#x27;commonjs&#x27;,
+			modules: 'commonjs',
 			inputSourceMap: file.sourceMap
 		}, opts);
 
@@ -217,7 +210,7 @@ file.base);
 			var compiler = new traceur.NodeCompiler(opts);
 			var ret = compiler.compile(file.contents.<span class="apidocCodeKeywordSpan">toString</span>(), file.relative, file.relative,
 file.base);
-			var sourceMap = file.sourceMap &#x26;&#x26; compiler.getSourceMap();
+			var sourceMap = file.sourceMap &amp;&amp; compiler.getSourceMap();
 
 			if (ret) {
 				file.contents = new Buffer(ret);
@@ -236,3 +229,4 @@ file.base);
     ]
 </div>
 </div>
+</body></html>
