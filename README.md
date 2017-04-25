@@ -1,4 +1,7 @@
-# api documentation for  [gulp-traceur (v0.17.2)](https://github.com/sindresorhus/gulp-traceur#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-gulp-traceur.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-gulp-traceur) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-gulp-traceur.svg)](https://travis-ci.org/npmdoc/node-npmdoc-gulp-traceur)
+# npmdoc-gulp-traceur
+
+#### basic api documentation for  [gulp-traceur (v0.17.2)](https://github.com/sindresorhus/gulp-traceur#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-gulp-traceur.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-gulp-traceur) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-gulp-traceur.svg)](https://travis-ci.org/npmdoc/node-npmdoc-gulp-traceur)
+
 #### Traceur is a JavaScript.next to JavaScript-of-today compiler
 
 [![NPM](https://nodei.co/npm/gulp-traceur.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/gulp-traceur)
@@ -84,7 +87,8 @@
     "scripts": {
         "test": "xo && mocha"
     },
-    "version": "0.17.2"
+    "version": "0.17.2",
+    "bin": {}
 }
 ```
 
